@@ -1,14 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template
 
 application = Flask(__name__)
 
 @application.route('/')
 def index():
-	return "<p> Sucessfully Deployed Python Flask Web Application to OpenShift Cloud (Container Application Platform by Red Hat!) <br/><br/> <a href='/about'> About Page </a> </p>"
+	return render_template("index.html")
 
 @application.route('/about')
 def about():
-	return "<p> Hi there, I am Akash, You can Call Me AkashJeez, I Love Coding and Racing :) <br/><br/> <a href='/'> Index Page </a> </p>"
+	return render_template("about.html")
 
 if __name__ == '__main__':
 	application.run(debug = True)
